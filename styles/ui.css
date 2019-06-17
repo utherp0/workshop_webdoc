@@ -54,6 +54,11 @@ tr.broken { background-color:#ff1616;color:white }
 .attendee {font-family:arial; font-size:9pt;color:black;font-weight:bold; padding:2px}
 .chapterHeader {font-family:arial; font-size:12pt;color:red;font-weight:bold; padding:2px}
 .chapterInfo {font-family:arial; font-size:10pt;color:#666666;font-weight:bold; padding:2px}
+.terminal {
+  font-family:'Courier New', Courier, monospace;
+  color:white;
+  background: black;
+}
 
 #loading_screen
 {

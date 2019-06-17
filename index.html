@@ -57,34 +57,406 @@ on your machine or via a hosted option, i.e. workshop app...
 <div class="presenter" id="presenterNotes1" style="display:none">
   Explain the UI and oc from the perspective of interacting with the Object Model as described in the devex deck</div>
 <div class="attendee">
-    <input type="checkbox"/>LOGON to the OCP system through the UI</div>
-<div class="attendee">
-    <input type="checkbox"/>Ensure you are logged on - in the top right where the user name is shown select the pulldown and select 'Copy Login Command'</div>
-<div class="attendee">
-    <input type="checkbox"/>Using your chosen 'oc' mechanism, paste the login command and press return</div>
-<div class="attendee">    
-    <input type="checkbox"/>Type 'oc whoami', then 'oc version'</div>
+    <input type="checkbox"/>LOGON to the OCP system through the UI</div>   
+    
 <div class="presenter" id="presenterNotes2" style="display:none">
   Explain the messages from 'whoami' and 'version - ensure ALL attendees are correctly logged on</div>
 <div class="attendee">
-    <input type="checkbox"/>Select 'Create Project'. As a name give it "sandboxxx" where xx is your User number or unique username (your choice). Enter
+    <input type="checkbox"/>Select 'Create Project'. As a name give it "oconline-userxx" where xx is your User number or unique username (your choice). Enter
   human readable info for Description and Display Name, and hit 'Create'
 </div>  
 <div class="attendee">
     <input type="checkbox"/>Select 'View All' in the right panel. Ensure your project is there. Click on the Project Name. You should see an empty project with 
   the message 'Get Started With Your Project'
 </div>  
+<div class="attendee">
+  <input type="checkbox"/>Choose to ‘Deploy an Image’
+</div>
+<div class="attendee">
+  <input type="checkbox"/>Choose ‘Image Name’ - provide quay.io/ilawson/oconline:latest - press the search icon
+</div>
+<div class="attendee">
+  <input type="checkbox"/>Deploy the Image
+</div>
+<div class="attendee">
+  <input type="checkbox"/>Click on the blue Pod ring
+</div>
+<div class="attendee">
+  <input type="checkbox"/>Select ‘Terminal’ from the options
+</div>
+<div class="attendee">
+  <input type="checkbox"/>Click on your User Name at the top right corner, choose ‘Copy Login Command’
+</div>
+<div class="attendee">
+  <input type="checkbox"/>Paste that command into the Pod terminal, hit return - hit ‘y’ for insecure access
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>Type <span class="terminal">oc whoami</span>, then <span class="terminal">oc version</span>
+</div>
+
+<div class="attendee">   
+  <input type="checkbox"/>Create a project, call it sandbox-xx (xx being the user number), suggest human readable values for display name and notes
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>Goto the Catalog
+</div>
+<br/><br/>
 <hr width="100%"/>
 <span class="chapterHeader" id="chapter2">Chapter 2 - Simple Application Lifecycle</span><br/><br/>
 <span class="chapterInfo">This chapter covers the creation and modification of a simple node.js application
-</span><br/><br/>
+</span>
 <div class="presenter" id="presenterNotes3" style="display:none">
-    Describe the four types of build and how they work, including the scripts that make up an S2I build</div>
-<div class="attendee">
-    <input type="checkbox"/>Select 'Browse Catalog'
+    Describe the four types of build and how they work, including the scripts that make up an S2I build
 </div>
-<dic class="attendee">
-  <input type="checkbox"/>In the search box type 'node'
-</dic>
+<div class="attendee">   
+</div>
+  <input type="checkbox"/> [UI] Select Add to Project using the sandbox-xx project/Browse Catalog
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>In the search box, type node
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[UI] Select the Node/Builder option from the search box
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[UI] Select ‘Next’ on first page of Wizard
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[UI] Select node image version 10
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[UI] Enter name as ‘nodetest’
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[UI] Enter the following url as the github repo - https://github.com/utherp0/ocpnode
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[UI] Hit Create, then close the wizard
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[UI] Go back to Overview
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[UI] Click on the route 
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[UI] Go to Application/Services
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[UI] Go back to Overview - click on the Pod itself 
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[UI] Back to Overview
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[UI] Click on the Pod ring
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[UI] Click on one of the younger Pods
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[UI] Go to Application/Route
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[UI] Click on the route, then the service
+</div>
+<div class="attendee">   
+  <input type="checkbox"/>[oc] Get attendees to do <span class="terminal">oc whoami</span> to insure they are still logged on - if not take the login information from the UI as before and paste it into the oc window
+</div>
+<div class="attendee">
+  <input type="checkbox"/><span class="terminal"> oc project sandbox-(xxx)</span> (whichever one the attendee has)
+</div>
+<div class="attendee">      
+  <input type="checkbox"/><span class="terminal"> oc get all</span>
+</div>
+<div class="attendee">      
+  <input type="checkbox"/><span class="terminal"> oc get pods -o wide</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] and [oc] Ensure the attendee can see both the [oc] window and the UI Overview, [oc] <span class="terminal">oc delete pod</span> (one of the nodetest pods)
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Applications/Deployment, click on nodetest/configuration/Add Health Checks/Learn More 
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Applications/Deployment, click on configuration again 
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Select Actions/Edit - change Rolling to Recreate - save
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Applications/Deployments - point out ‘Deployment #1 is active’ - select ‘Deploy’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Back to Overview (quickly) - show the recreate behaviour
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Applications/Deployments/nodetest - point out ‘Deployment #2 is active’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Select Actions/Edit - change Recreate to Rolling - save
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Applications/Deployments/nodetest - Deploy
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Back to Overview (quickly)
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Storage/Create Storage, default storage class, name=’test’, access mode RWO, size=1GB, ‘Create’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Applications/Deployments/nodetest/Configuration, scroll down, click ‘Add Storage’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Test PV should be selected, set the mount path to something unique to the attendee (i.e. /uth), click ‘Add’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Back to Overview
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Click on Pod ring - scroll down, select the top Pod
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Select Terminal
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">id</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">df -h</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">ps -ef</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] In the Pod terminal, do <span class="terminal">cd (themountpointforthePV)</span> then <span class="terminal">touch test.txt</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] In the Pod terminal, do <span class="terminal">ls -alZ</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">oc get pods -o wide</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Go to Overview, click on the Pod, scroll down, choose the first named Pod, select Terminal
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">cd /(mountpointforpv)</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">vi test.txt</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>type some chars
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">[ESC]:wq</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Go to Overview, click on the other Pod (insure it’s somewhere physically different), cd /(mountpointforpv), cat test.txt
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Resources/Config Maps - ‘Create Config Map’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Name = ‘configmapenv’, Key = “CONFIGENV’, Value = “somevaluefortheenv”, ‘Create’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Applications/Deployments/nodetest/Environment, Environment From - select configmapenv, click ‘Add ALL Values from Config Map’, ‘Save’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Back to Overview, watch the deployment finish
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Click on the Pod ring, scroll down, choose a Pod, choose Terminal, type ‘env | grep CONFIGENV’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Resources/Config Maps - ‘Create Config Map’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Name = ‘configmapfile’, Key = ‘myapp.conf’, Value=’hello!’, ‘Create’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Applications/Deployments/nodetest/Configuration/Add Config Files, Source = configmapfile, Mount Path = ‘/config/app’, ‘Add’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Back to Overview, watch deployment complete
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Click on Pod ring, scroll down, click on a Pod, Terminal, ‘cd /config/app’, ‘cat myapp.conf’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Resources/Secrets, ‘Create Secret’, type=’Generic Secret’, secret name=”nodetestsecret”, key=”mypassword”, clear value=”mydodgypassword”, ‘Create
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Click on the secret ‘nodetestsecret’, click on ‘Add to Application’, select ‘nodetest’, ‘Save’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Back to Overview, watch the deployment complete, click on the Pod ring, scroll down, select a Pod
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Select ‘Terminal’, type ‘env | grep password’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal"> oc describe secret nodetestsecret</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal"> oc edit secret nodetestsecret</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal"> oc describe bc nodetest</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal"> oc delete all -l “app=nodetest”</span>
+</div>
+<br/><br/>
+<hr width="100%"/>
+<span class="chapterHeader" id="chapter3">Chapter 3 - SDN Networking</span><br/><br/>
+
+<div class="attendee">      
+    <input type="checkbox"/>[oc YOU] (with cluster admin) oc get clusternetwork
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal"> oc new-project sdntest(xx) --description=”SDN Test” --display-name=”SDN Test”</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal"> oc get project</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal"> oc new-app registry.access.redhat.com/rhscl/nodejs-8-rhel7~https://github.com/utherp0/nodejs-ex --name="nodetest1"</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal"> oc new-app registry.access.redhat.com/rhscl/nodejs-8-rhel7~https://github.com/utherp0/nodejs-ex --name="nodetest2"</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Click on the Pod for nodetest1 - show the IP address for the Pod
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Applications/Services - point out the Cluster IPs for nodetest1 and nodetest2
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Overview/Click on nodetest1 Pod, Terminal, <span class="terminal">curl http://localhost:8080</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">curl http://nodetest1:8080</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">curl http://nodetest2:8080</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">getent hosts nodetest1</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">curl http://nodetest1.sdntest(xx).svc.cluster.local</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">curl http://nodetest1.(the person next to you’s project).svc.cluster.local:8080</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Applications/Route
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Create Route, name canaryroute, * Service - nodetest1, select ‘Split Traffic Across Multiple Services’,  second * Service - nodetest2, Service Weights 80% nodetest1, 20% nodetest2, Create
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Click on canaryroute
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Overview
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Click on nodetest1 Pod, Terminal, ‘getent hosts canaryroute-sdntest(xx).(domain)’
+</div>
+<br/><br/>
+<hr width="100%"/>
+<span class="chapterHeader" id="chapter4">Chapter 4 - User RBAC</span><br/><br/>
+
+<div class="attendee">      
+    <input type="checkbox"/>UI] Go to the Overview for the project created by the user
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Choose Resources/Membership
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Adding a user to your project - attendees pick the person next to them, go to Resources/Membership. Choose ‘Users’. Click ‘Edit Membership’. Add the user in the textbox to the left. Pull down the ‘Select a role’ and choose ‘admin’. Hit ‘Add’.
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>UI] Attendees who have been given access to another project can now see that project in the right-hand panel at the Home page (click on the OPENSHIFT CONTAINER PLATFORM logo.
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Attendees try starting a build in the gifted project
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[oc] for the people who gave the account do ‘oc adm policy remove-role-from-user admin (user)’
+</div>
+<br/><br/>
+<hr width="100%"/>
+<span class="chapterHeader" id="chapter5">Chapter 5 - CICD and the Jenkins Pipelines</span><br/><br/>
+
+<div class="attendee">      
+    <input type="checkbox"/>[oc] In the appropriate oc window create a directory for the git source - suggestion is <span class="terminal">mkdir ~/git</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">cd ~/git</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">git clone https://github.com/utherp0/workshop_material</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">cd workshop_material</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">cd attendee</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">ls</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">cat groovy_pipeline.sh</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">sed -i ‘s/PROJECT.NAME/{uniquenameforattendee}/g’ groovy_pipeline.sh</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">cat groovy_pipeline.sh</span> to make sure the project name is correct
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">sed -i ‘s/PROJECT.NAME/{uniquenameforattendee}/g’ pipeline_complex_bc.yaml</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">oc whoami</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/><span class="terminal">./groovy_pipeline.sh</span>
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Go to the project/Overview - Watch the Jenkins Ephemeral Pod startup - explain why it takes so long and what it is doing - the creation of a buildconfig that had a pipeline type automatically creates the Jenkins Pod if one doesn’t exist
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Once the Pod turns blue, click on the Route - THIS MAY TAKE A WHILE - walk the attendees through logging on to the Jenkins instance
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Builds/Pipelines - show the stages running, explain what each is doing, refer to the Groovy script
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] When the pipeline completes (address issues if not - usually a naming convention of the project, if so correct the pipeline_complex_bc.yaml and show how to a: oc delete bc x, and b: oc create -f pipeline_complex_bc.yaml
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Overview - show the six pods running, point out the deployment number, Discuss the removal of the triggers on the deployment and why (with automation in place the creation of an image would force a deployment which would interfere with the pipeline, we disable the deployment on image and config triggers so the pipeline can control it all)
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Go back to the Jenkins Route - select Open Blue Ocean. Choose the Pipeline, click on the build, show the prettier Jenkins UI
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Builds/Pipelines - click on complexpipeline - Actions/Edit
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Replace the line ‘dc,scale(“--replicas=6”)’ with ‘dc.scale(“--replicas=4”)’
+</div>
+<div class="attendee">      
+    <input type="checkbox"/>[UI] Start Pipeline, then switch to Overview
+</div>
+
 </body>
 </html>
