@@ -1,0 +1,90 @@
+<html>
+<head>
+  <title>Devex OCP Workshop Guide</title>
+  <link rel="shortcut icon" href="images/redhat.ico" type="image/vnd.microsoft.icon" />
+  <script src="scripts/jquery-3.4.1.min.js"></script>
+  <link rel="stylesheet" href="styles/ui.css"/>
+
+  <script>
+    function dataFill()
+    {
+      $.ajax({url: "envs", success: function( result ) {
+        $("#requestStatus").html(result);
+      }});
+    }
+
+    function jsonCall()
+    {
+      $.ajax({url:"nasa", success: function(result) {
+        $("#jsonoutput").html(result);
+      }});
+    }
+
+    function revealAll( targetName )
+    {
+      document.querySelectorAll('*').forEach(function(node) 
+      {
+        if( node.id != null && node.id.startsWith(targetName))
+        {
+          reveal( node.id );
+        }
+      });      
+
+      buttonLabel = document.getElementById("hider").value;
+      document.getElementById("hider").value = ( document.getElementById("hider").value == "Reveal Presenter Notes" ? "Hide Presenter Notes" : "Reveal Presenter Notes");
+    }
+
+    function reveal( targetName )
+    {
+      target = document.getElementById(targetName);
+
+      target.style.display = ( target.style.display == "block" ? "none" : "block" );
+    }
+
+  </script>
+
+</head>
+
+<body onload="">
+<div width="100%" align="right"><img src="images/redhat.png" width="200px"/></div>
+
+<input type="button" id="hider" value="Reveal Presenter Notes" onClick="revealAll('presenterNotes');"/>
+<hr width="100%"/>
+<span class="chapterHeader" id="chapter1">Chapter 1 - An Introduction to OCP usage</span><br/><br/>
+<span class="chapterInfo">If using this guide please ensure you have access to 'oc' in some fashion, either installed
+on your machine or via a hosted option, i.e. workshop app...
+</span><br/><br/>
+<div class="presenter" id="presenterNotes1" style="display:none">
+  Explain the UI and oc from the perspective of interacting with the Object Model as described in the devex deck</div>
+<div class="attendee">
+    <input type="checkbox"/>LOGON to the OCP system through the UI</div>
+<div class="attendee">
+    <input type="checkbox"/>Ensure you are logged on - in the top right where the user name is shown select the pulldown and select 'Copy Login Command'</div>
+<div class="attendee">
+    <input type="checkbox"/>Using your chosen 'oc' mechanism, paste the login command and press return</div>
+<div class="attendee">    
+    <input type="checkbox"/>Type 'oc whoami', then 'oc version'</div>
+<div class="presenter" id="presenterNotes2" style="display:none">
+  Explain the messages from 'whoami' and 'version - ensure ALL attendees are correctly logged on</div>
+<div class="attendee">
+    <input type="checkbox"/>Select 'Create Project'. As a name give it "sandboxxx" where xx is your User number or unique username (your choice). Enter
+  human readable info for Description and Display Name, and hit 'Create'
+</div>  
+<div class="attendee">
+    <input type="checkbox"/>Select 'View All' in the right panel. Ensure your project is there. Click on the Project Name. You should see an empty project with 
+  the message 'Get Started With Your Project'
+</div>  
+<hr width="100%"/>
+<span class="chapterHeader" id="chapter2">Chapter 2 - Simple Application Lifecycle</span><br/><br/>
+<span class="chapterInfo">This chapter covers the creation and modification of a simple node.js application
+</span><br/><br/>
+<div class="presenter" id="presenterNotes3" style="display:none">
+    Describe the four types of build and how they work, including the scripts that make up an S2I build</div>
+<div class="attendee">
+    <input type="checkbox"/>Select 'Browse Catalog'
+</div>
+<dic class="attendee">
+  <input type="checkbox"/>In the search box type 'node'
+</dic>
+</body>
+</html>
